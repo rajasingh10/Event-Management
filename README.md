@@ -34,6 +34,6 @@ allocation of their students across multiple events.
 * Express - fast node.js network app framework
 * reactJS - libraries for front-end development
 
-### Development
+### Install
 
 
