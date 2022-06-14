@@ -19,7 +19,7 @@ const seeder = {
             }
 
         } catch (error) {
-            responder.error(res, error.message, 400);
+            console.log(error);
         }
 
     }
