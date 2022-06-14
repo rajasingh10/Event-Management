@@ -20,12 +20,12 @@ const RegistrationSchema = new mongoose.Schema({
         type: Number,
         default: +new Date()
     },
-    status: {
-        type: String,
-        enum: ['pending', 'confirmed'],
-        default: 'pending',
-        required: true
-    },
+    // status: {
+    //     type: String,
+    //     enum: ['pending', 'confirmed'],
+    //     default: 'pending',
+    //     required: true
+    // },
     registrationCode: {
         type: String,
         default: () => voucher_codes.generate({
@@ -34,15 +34,15 @@ const RegistrationSchema = new mongoose.Schema({
         })[0],
         unique: true
     },
-    confirmedBy: {
-        type: String,
-        default: null
-    },
-    confirmedOn: {
-        type: Number,
-        default: null
-    },
-    
+    // confirmedBy: {
+    //     type: String,
+    //     default: null
+    // },
+    // confirmedOn: {
+    //     type: Number,
+    //     default: null
+    // },
+
 })
 
 

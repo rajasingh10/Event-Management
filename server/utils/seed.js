@@ -15,11 +15,11 @@ const seeder = {
                 // const token = jwt.sign({ user_id: admin._id, email: admin._email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "2h" });
                 // admin.token = token;
                 await admin.save();
-                console.log(admin)
+                // console.log(admin)
             }
 
-        } catch (err) {
-            console.log(err)
+        } catch (error) {
+            responder.error(res, error.message, 400);
         }
 
     }

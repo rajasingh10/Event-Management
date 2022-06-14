@@ -2,14 +2,15 @@ const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
 const EmailOtpVerification = require('../models/EmailOtpVerification');
 const bcrypt = require("bcryptjs");
-const CLIENT_ID = '889693167677-s4i8lnoe151j11thpc6ioq728lutcsag.apps.googleusercontent.com'
-const CLIENT_SECRET = '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'
-const REDIRECT_URI = 'https://developers.google.com/oauthplayground'
-const REFRESH_TOKEN = '1//048q718VqicKoCgYIARAAGAQSNwF-L9IrVN_BaPMOnfDMdltb3DfZ--1z8eNoLbDLxX63JUAP89uXxURVFx-11ObsAxAiH5D9y6M'
+// const CLIENT_ID = '215154276267-56cctg2pu53vjsfm3cik0h0nk5pqrl11.apps.googleusercontent.com'
+// const CLIENT_SECRET = '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'
+// const REDIRECT_URI = 'https://developers.google.com/oauthplayground'
+// const REFRESH_TOKEN = '1//04IEwgcIkvfZvCgYIARAAGAQSNwF-L9IrBMpSN3X_SI4FZpN3IFqWFCFZSxExXlA6SdoPsyBYVp9DUhJ2pmyTvXW77evWwBggiH0'
 const responder = require('../utils/responder');
 
-const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI)
-oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
+
+const oAuth2Client = new google.auth.OAuth2(process.env.CLIENT_ID, process.env.CLIENT_SECRET, process.env.REDIRECT_URI)
+oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN })
 
 const sendOtpVerificationEmail = async (_id, email, res) => {
     try {
@@ -22,9 +23,9 @@ const sendOtpVerificationEmail = async (_id, email, res) => {
             auth: {
                 type: 'OAuth2',
                 user: 'rajasingh8889@gmail.com',
-                clientId: CLIENT_ID,
-                clientSecret: CLIENT_SECRET,
-                refreshToken: REFRESH_TOKEN,
+                clientId: process.env.CLIENT_ID,
+                clientSecret: process.env.CLIENT_SECRET,
+                refreshToken: process.env.REFRESH_TOKEN,
                 accessToken: accessToken
             }
         })
@@ -48,10 +49,10 @@ const sendOtpVerificationEmail = async (_id, email, res) => {
 
         await newOtpVerification.save();
 
-        const result = await transport.sendMail(mailOptions)
-        responder.success(res, "OTP send Successfully", 201)
+        await transport.sendMail(mailOptions)
+        // return responder.success(res, "OTP send Successfully", 201)
     } catch (error) {
-        console.log(error)
+        return responder.error(res, error.message, 400);
     }
 }
 

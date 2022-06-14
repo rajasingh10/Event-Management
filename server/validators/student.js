@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const branch = ['CSE', 'IS', 'ECE'];
+const branch = ['CSE', 'IS', 'ECE', 'ME', 'EEE', 'MCA'];
 
 const createStudent = data => {
 

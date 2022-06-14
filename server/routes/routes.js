@@ -10,6 +10,7 @@ const authJwtMiddleware = require('../middlewares/authJwt.js');
 
 router.use('/auth', auth);
 
+
 //required authentication to get all end points
 
 router.use(authJwtMiddleware.authenticateJWT)

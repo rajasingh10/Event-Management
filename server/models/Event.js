@@ -36,10 +36,6 @@ const EventSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    status: {
-        type: String,
-        default: 'confirmed',
-    },
     category: {
         type: String,
         required: true,

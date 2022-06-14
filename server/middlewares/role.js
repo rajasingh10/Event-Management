@@ -3,21 +3,22 @@ const errorCodes = require('../utils/errors');
 
 const middleware = {
     isAdmin: (req, res, next) => {
-        if (req.user.role === "admin") {
+        if (res.locals.user.role === "Admin") {
             next();
         } else {
             responder.error(res, errorCodes.unAuthorized, 401);
         }
     },
     isFaculty: (req, res, next) => {
-        if (req.user.role === "faculty") {
+        if (res.locals.user.role === "Faculty") {
             next();
         } else {
             responder.error(res, errorCodes.unAuthorized, 401);
         }
     },
     isStudent: (req, res, next) => {
-        if (req.user.role === "student") {
+
+        if (res.locals.user.role === "Student") {
             next();
         } else {
             responder.error(res, errorCodes.unAuthorized, 401);

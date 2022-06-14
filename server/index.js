@@ -6,10 +6,11 @@ require('dotenv').config();
 const seeder = require('./utils/seed');
 const responder = require('./utils/responder');
 const routes = require('./routes/routes');
-
+const cookieParser = require("cookie-parser");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3001' }));
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     responder.success(res, "Welcome to event management", 200)
@@ -29,9 +30,12 @@ app.use((err, req, res, next) => {
 seeder.seedAdmins();
 
 
-mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-    console.log('connected to db');
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+    console.log('Connected to the database ')
+}).catch((err) => {
+    console.error(`Error connecting to the database. n${err}`);
 })
+
 
 
 app.listen(process.env.PORT || 3000, () => {
