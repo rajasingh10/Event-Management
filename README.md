@@ -33,7 +33,7 @@ allocation of their students across multiple events.
 * node.js - evented I/O for the backend
 * Express - fast node.js network app framework
 * reactJS - libraries for front-end development
-
-### Install
+* MongoDB - database
+### Setting Project
 
 
