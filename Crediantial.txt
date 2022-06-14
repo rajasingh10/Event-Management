@@ -1,4 +1,0 @@
-password : VhDgPdohUNY8ajKr
-user name: Raja8889
-
-db_url : mongodb+srv://Raja8889:<password>@cluster0.qqrts3m.mongodb.net/?retryWrites=true&w=majority
