@@ -4,7 +4,7 @@ Fully developed, scalable APIs for Event management system, developed using **No
 Front-end using **React.js** (front-end Currently in development)
 
 ### Features:
-  - Application should have only one super admin
+  - Application have only one super admin
   - Admin can add multiple events with the attributes like (Event Name, Date, Details 
 Thumbnail / Banner Image etc.). Events are open for all branch (Students from any branch can participate)
   - Admin can add only 1 faculty from each branch who will have moderator access.
