@@ -3,6 +3,7 @@ import "../styles/Login.css";
 import { Link } from "react-router-dom";
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 export default function Login() {
@@ -43,8 +44,8 @@ export default function Login() {
             const data = await response.json();
 
             if (response.status == 201) {
+                toast.success(data.data.message)
 
-                alert(data.data.message);
                 if (data.data.role == "Admin") {
 
                     navigate("/adminHome");
@@ -58,7 +59,8 @@ export default function Login() {
             }
             else if (response.status == 401) {
                 // console.log(data.error.userId)
-                alert(data.error.error);
+                toast.error(data.error.error)
+
                 setUserId(data.error.userId);
                 HandleResendOtp();
                 setPopUp(true)
@@ -115,7 +117,7 @@ export default function Login() {
             const data = await response.json();
             if (response.status == 201) {
                 setPopUp(false);
-                alert(data.data.message);
+                toast.success(data.data.message);
                 navigate('/login');
             }
             else {
@@ -193,6 +195,7 @@ export default function Login() {
                     </div>
                 </div>
             </div>}
+
         </div >
     )
 }

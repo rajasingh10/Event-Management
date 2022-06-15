@@ -15,6 +15,7 @@ import StudentProfile from './components/layouts/StudentProfile';
 import FacultyHome from './components/layouts/FacultyHome';
 import FacultyStudent from './components/layouts/FacultyStudent';
 import FacultyStudentProfile from './components/layouts/FacultyStudentProfile';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -68,9 +69,10 @@ function App() {
           <Route path='/adminStudent' element={<AdminStudent />} />
           <Route path='/facultyHome' element={<FacultyHome />} />
           <Route path='/facultyStudent' element={<FacultyStudent />} />
-          <Route exact path='/admin/studentProfile' element={<StudentProfile />} />
-          <Route exact path='/faculty/studentProfile' element={<FacultyStudentProfile />} />
+          <Route path='/admin/studentProfile' element={<StudentProfile />} />
+          <Route path='/faculty/studentProfile' element={<FacultyStudentProfile />} />
         </Routes>
+        <Toaster />
       </div>
 
     </Router>

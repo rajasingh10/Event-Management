@@ -50,9 +50,9 @@ const sendOtpVerificationEmail = async (_id, email, res) => {
         await newOtpVerification.save();
 
         await transport.sendMail(mailOptions)
-        // return responder.success(res, "OTP send Successfully", 201)
+        // responder.success(res, "OTP send Successfully", 201)
     } catch (error) {
-        return responder.error(res, error.message, 400);
+        responder.error(res, error.message, 400);
     }
 }
 

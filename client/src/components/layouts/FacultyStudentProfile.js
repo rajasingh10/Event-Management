@@ -35,7 +35,7 @@ export default function FacultyStudentProfile({ id }) {
                 // console.log(data.data.events);
             }
             else {
-                alert(data.error);
+                console.log(data.error);
             }
         } catch (error) {
             // alert(error);

@@ -5,6 +5,7 @@ import '../styles/AdminEvents.css'
 import EventPagination from './EventPagination'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import toast, { Toaster } from 'react-hot-toast';
 
 const NavList = [{ name: "Home", path: "/adminHome" }, { name: "Events", path: "/adminEvents" }, { name: "Faculty", path: "/adminFaculty" }, { name: "Student", path: "/adminStudent" }];
 
@@ -151,7 +152,7 @@ export default function AdminEvents() {
             // console.log(data);
 
             if (response.status == 201) {
-                alert(data.data.message);
+                toast.success(data.data.message);
                 setPopUp(false)
                 HandleEventList();
             }
@@ -185,8 +186,8 @@ export default function AdminEvents() {
             // console.log(data);
 
             if (response.status == 201) {
+                toast.success(data.data.message)
 
-                alert(data.data.message);
                 HandleEventList();
                 setEditType(false);
                 setState({
@@ -232,8 +233,8 @@ export default function AdminEvents() {
             // console.log(data);
 
             if (response.status == 201) {
+                toast.success(data.data.message)
 
-                alert(data.data.message);
                 HandleEventList();
                 setEditType(false);
                 setState({
@@ -589,7 +590,7 @@ export default function AdminEvents() {
                     <p class="close" onClick={() => setPopUp(false)}>&times;</p>
                     <div class="content">
                         <div className="input-box">
-                            <h6>Sure,you want to Delete</h6>
+                            <h6>Sure,you want to Delete?</h6>
                             <button
                                 type="button"
                                 className="btn btn-danger btn-sm my-3"

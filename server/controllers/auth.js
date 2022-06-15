@@ -25,6 +25,9 @@ const controller = {
             const AlreadyExist = await Student.findOne({ email });
 
             if (AlreadyExist) {
+                if (!AlreadyExist.email_verified) {
+                    return responder.error(res, "Email is not Verified, Try Login to Verify", 409);
+                }
                 return responder.error(res, "Account already Exist", 409);
             }
             else {
@@ -101,7 +104,7 @@ const controller = {
 
 
             if (validPassword) {
-                const maxAge = 15 * 60 * 60;
+                const maxAge = 3 * 60 * 60;
                 const token = await user.generateAuthToken();
                 res.cookie("jwt", token, {
                     httpOnly: true,

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom'
 import '../styles/Navbar.css'
+import toast, { Toaster } from 'react-hot-toast';
 
 
 export default function Navbar({ NavList }) {
@@ -43,6 +44,7 @@ export default function Navbar({ NavList }) {
         if (response.status == 201) {
             // console.log("Logout Successful");
             setIsLoggedIn(false);
+            toast.success("Logout Successful");
             navigate("/login");
         }
         else {
@@ -59,7 +61,7 @@ export default function Navbar({ NavList }) {
                     <span class="line line3"></span>
                 </div>
                 <ul class="menu-items">
-                    {isLoggedIn && NavList.map((item, index) => <li key={index}><Link to={item.path}>{item.name}</Link></li>)}
+                    {isLoggedIn && NavList.map((item, index) => <Link to={item.path} style={{ textDecoration: "none" }}><li key={index}>{item.name}</li></Link>)}
                     <li> <Link
                         to='#'
                         onClick={(e) => {

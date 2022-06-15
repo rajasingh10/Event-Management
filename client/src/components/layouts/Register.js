@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import "../styles/Register.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -45,12 +47,11 @@ export default function Register() {
             const data = await response.json();
             // console.log(response.status)
             if (response.status == 201) {
-                // console.log(data.message)
                 setUserId(data.data.student._id)
                 setPopUp(true)
             }
-            else {
-                // alert(data.error)
+            else if (response.status == 409) {
+                toast.error(data.error)
 
             }
         } catch (error) {
@@ -77,7 +78,8 @@ export default function Register() {
             // console.log(data)
             if (response.status == 201) {
                 setPopUp(false);
-                alert(data.data.message);
+                toast.success(data.data.message)
+
                 navigate('/');
             }
             else {
@@ -148,11 +150,14 @@ export default function Register() {
 
                     <p class="close" onClick={() => setPopUp(false)}>&times;</p>
                     <div class="content">
-                        <div className="input-box">
-                            <h6>Please enter the one time password <br /> to verify your account</h6>
-                            <div> <span>A code has been sent to</span> <small>{`${user.email}`}</small> </div>
+                        <h6>Please enter the one time password <br /> to verify your account</h6>
+                        <div> <span>A code has been sent to</span> <small>{`${user?.email}`}</small> </div>
+                        <div className="popInput">
+
                             <input type="text" placeholder="Enter OTP" required name='otp' value={otp} onChange={(e) => setOtp(e.target.value)} />
-                            <button onClick={handleOtp}>Submit</button>
+                            <div className="inputButton" style={{ marginTop: "4px" }}>
+                                <Button variant="primary" onClick={handleOtp}>Submit</Button>
+                            </div>
                         </div>
                     </div>
                 </div>

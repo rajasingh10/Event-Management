@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import "../styles/AdminFaculty.css"
+import toast, { Toaster } from 'react-hot-toast';
 
 const NavList = [{ name: "Home", path: "/adminHome" }, { name: "Events", path: "/adminEvents" }, { name: "Faculty", path: "/adminFaculty" }, { name: "Student", path: "/adminStudent" }];
 
@@ -77,8 +78,8 @@ export default function AdminFaculty() {
             // console.log(data);
 
             if (response.status == 201) {
+                toast.success(data.data.message)
 
-                alert(data.data.message);
                 HandleFacultyList();
                 setEditType(false);
                 setState({
@@ -93,6 +94,13 @@ export default function AdminFaculty() {
 
             }
             else {
+                if (data.error.includes("duplicate key error")) {
+                    toast.error("Already,faculty has been registered for this branch")
+                }
+                else {
+
+                    toast.error(data.error)
+                }
                 // alert(data.error)
             }
         } catch (err) {
@@ -120,8 +128,7 @@ export default function AdminFaculty() {
             // console.log(data);
 
             if (response.status == 201) {
-
-                alert(data.data.message);
+                toast.success(data.data.message)
                 HandleFacultyList();
                 setEditType(false);
                 setState({
@@ -136,6 +143,13 @@ export default function AdminFaculty() {
 
             }
             else {
+                if (data.error.includes("duplicate key error")) {
+                    toast.error("Already,faculty has been registered for this branch")
+                }
+                else {
+
+                }
+                toast.error(data.error)
                 // alert(data.error)
             }
         } catch (err) {
@@ -159,11 +173,13 @@ export default function AdminFaculty() {
             // console.log(data);
 
             if (response.status == 201) {
-                alert(data.data.message);
+                toast.success(data.data.message)
+
                 setPopUp(false)
                 HandleFacultyList();
             }
             else {
+                toast.error(data.error)
                 // alert(data.error)
             }
         } catch (err) {

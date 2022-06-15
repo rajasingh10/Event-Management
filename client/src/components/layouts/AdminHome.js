@@ -12,7 +12,7 @@ export default function AdminHome() {
 
                     <Link to="/adminEvents" class="card 1">
                         <div class="card_title">
-                            <p>Events</p>
+                            <p>Event</p>
                         </div>
                     </Link>
                     <Link to="/adminFaculty" class="card 2">

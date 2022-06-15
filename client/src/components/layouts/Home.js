@@ -16,6 +16,7 @@ export default function Home() {
     const [eventList, setEventList] = useState([]);
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [role, setRole] = useState('');
 
     useEffect(() => {
         handleLogin()
@@ -42,6 +43,12 @@ export default function Home() {
                     setPending(false);
                 }
                 setIsLoggedIn(true);
+                if (data.data.role === "Admin") {
+                    navigate("/adminHome");
+                }
+                else if (data.data.role === "Faculty") {
+                    navigate("/facultyHome");
+                }
 
             }
             else {
