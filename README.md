@@ -42,7 +42,7 @@ Front-end using **React.js** (front-end Currently in development)
 * Create a `.env` file in the server directory.
 * It should include the database url, port, secret and accessTokenSecret
   ###### .env file example
-  *DB_URL=mongodb+srv://***:***@event-manager.ul235.mongodb.net/***?retryWrites=true&w=majority*<br/>
+  *DB_URL=mongodb+srv://***:***@eventmanagement.ul235.mongodb.net/***?retryWrites=true&w=majority*<br/>
   *PRIVATE_KEY=secret*<br/>
   *PORT=4000*<br/>
   <br/>
