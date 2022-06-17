@@ -21,6 +21,7 @@ Front-end using **React.js** (front-end Currently in development)
 - Faculties are moderator and for reporting purpose they should be able to visualize
   allocation of their students across multiple events.
 - Token Based authentication (using JWT).
+- used cookies to store token 
 - for each registration sending ticket in mail using NodeMailer
 
 **You can also**:
