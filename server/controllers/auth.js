@@ -166,7 +166,7 @@ const controller = {
     },
     isLogin: async (req, res) => {
         try {
-            return responder.success(res, { message: "Login Successfully", isLogin: true, role: res.locals.user.role, verified: res.locals.user.verified }, 201);
+            return responder.success(res, { message: "Login Successfully", isLogin: true, role: res.locals.user.role, verified: res.locals.user?.verified, branch: res.locals.user?.branch }, 201);
         } catch (error) {
             return responder.error(res, error.message, 400);
         }

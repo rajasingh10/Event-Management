@@ -78,9 +78,10 @@ const controller = {
     getStatistics: async (req, res) => {
         try {
             // console.log("stats")
+            const branch = req.params.branch;
             const eId = await (Event.find({}));
             const stats = await Promise.all(eId.map(async e => {
-                const reg = await Registration.find({ eventId: e._id })
+                const reg = await Registration.find({ eventId: e._id, branch: branch });
                 // console.log(e.name, reg.length)
                 return { "name": e.name, "count": reg.length }
             }))

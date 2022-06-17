@@ -8,7 +8,7 @@ const dataMiddleware = require('../middlewares/data');
 
 router.get("/students", facultyController.getAllStudents);
 router.get("/events", facultyController.getAllEvents);
-router.get("/statistics", facultyController.getStatistics);
+router.get("/statistics/:branch", facultyController.getStatistics);
 router.get("/events/:id", dataMiddleware.isValidMongoooseId, facultyController.getEvent);
 
 router.get("/events/category/:category", dataMiddleware.isValidCategory, facultyController.getEventsByCategory);

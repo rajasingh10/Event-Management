@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Bar } from 'react-chartjs-2';
 import { Pie } from 'react-chartjs-2';
-import { Chart as ChartJS } from 'chart.js/auto';
+// import { Chart as ChartJS } from 'chart.js/auto';
 import "../styles/FacultyStudent.css";
 import "../styles/AdminStudent.css"
 import { Button } from 'react-bootstrap';
@@ -29,15 +29,35 @@ export default function FacultyStudent() {
 
     useEffect(() => {
         HandleStudentList();
-        HandleStatistics();
-
+        handleLogin()
     }, [])
 
 
 
-    const HandleStatistics = async () => {
+
+
+    const handleLogin = async () => {
+        const response = await fetch("http://localhost:3000/api/auth/isLogin", {
+            method: "GET",
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        if (response.status === 201) {
+            const data = await response.json();
+            HandleStatistics(data.data.branch)
+
+        }
+
+    }
+
+
+
+    const HandleStatistics = async (branch) => {
         try {
-            const response = await fetch("http://localhost:3000/api/faculty/statistics", {
+            const response = await fetch(`http://localhost:3000/api/faculty/statistics/${branch}`, {
                 method: "GET",
                 credentials: 'include',
                 headers: {
@@ -217,8 +237,8 @@ export default function FacultyStudent() {
                             </tr>
                         </thead>
                         <tbody>
-                            {studentData.map((student) => (
-                                <tr>
+                            {studentData.map((student, index) => (
+                                <tr key={index}>
                                     <td>
                                         {student.firstName}
                                     </td>

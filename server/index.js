@@ -29,7 +29,6 @@ app.use((err, req, res, next) => {
 
 seeder.seedAdmins();
 
-
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     console.log('Connected to the database ')
 }).catch((err) => {
