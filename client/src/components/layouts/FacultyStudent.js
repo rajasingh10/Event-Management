@@ -7,6 +7,8 @@ import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 import "../styles/AdminStudent.css"
 import { Button } from 'react-bootstrap';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const NavList = [{ name: "Home", path: "/facultyHome" }, { name: "Student", path: "/facultyStudent" }];
 
@@ -106,7 +108,9 @@ export default function FacultyStudent() {
             });
             const data = await response.json();
             if (response.status == 201) {
-                alert(data.data.message);
+                toast.success(data.data.message)
+               
+                // alert(data.data.message);
                 HandleStudentList();
             }
             else {

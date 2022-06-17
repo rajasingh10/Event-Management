@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import "../styles/Login.css";
 import { Link } from "react-router-dom";
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -30,6 +30,10 @@ export default function Login() {
             const { email, password, role } = user;
             // console.log(email, password, role)
 
+            if (role === "") {
+                return toast.error("chose a role")
+            }
+
             const response = await fetch("http://localhost:3000/api/auth/login", {
                 method: "POST",
                 credentials: 'include',
@@ -51,6 +55,7 @@ export default function Login() {
                     navigate("/adminHome");
                 }
                 else if (data.data.role == "Student") {
+                    console.log("Student")
                     navigate("/")
                 } else if (data.data.role == "Faculty") {
                     navigate("/facultyHome")
@@ -66,7 +71,7 @@ export default function Login() {
                 setPopUp(true)
             }
             else {
-                // alert(data.error)
+                toast.error(data.error)
             }
         } catch (error) {
             // alert(error)
@@ -177,7 +182,7 @@ export default function Login() {
                     </form>
                     <div class="footer">
 
-                        <p>Don't have an Account? <Link to="/register">SignUp</Link></p>
+                        <p style={{ fontSize: "20px" }}>Don't have an Account? <Link to="/register">SignUp</Link></p>
                     </div>
                 </div>
             </div >
@@ -186,11 +191,14 @@ export default function Login() {
 
                     <p class="close" onClick={() => setPopUp(false)}>&times;</p>
                     <div class="content">
-                        <div className="input-box">
-                            <h6>Please enter the one time password <br /> to verify your account</h6>
-                            <div> <span>A code has been sent to</span> <small>{`${user.email}`}</small> </div>
+                        <h6>Please enter the one time password <br /> to verify your account</h6>
+                        <div> <span>A code has been sent to</span> <small>{`${user?.email}`}</small> </div>
+                        <div className="popInput">
+
                             <input type="text" placeholder="Enter OTP" required name='otp' value={otp} onChange={(e) => setOtp(e.target.value)} />
-                            <button onClick={handleOtp}>Submit</button>
+                            <div className="inputButton" style={{ marginTop: "4px" }}>
+                                <Button variant="primary" onClick={handleOtp}>Submit</Button>
+                            </div>
                         </div>
                     </div>
                 </div>

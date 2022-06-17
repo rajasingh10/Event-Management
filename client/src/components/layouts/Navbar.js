@@ -61,7 +61,7 @@ export default function Navbar({ NavList }) {
                     <span class="line line3"></span>
                 </div>
                 <ul class="menu-items">
-                    {isLoggedIn && NavList.map((item, index) => <Link to={item.path} style={{ textDecoration: "none" }}><li key={index}>{item.name}</li></Link>)}
+                    {isLoggedIn && NavList.map((item, index) => <Link key={index} to={item.path} style={{ textDecoration: "none" }}><li >{item.name}</li></Link>)}
                     <li> <Link
                         to='#'
                         onClick={(e) => {

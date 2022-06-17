@@ -21,7 +21,7 @@ Front-end using **React.js** (front-end Currently in development)
 - Faculties are moderator and for reporting purpose they should be able to visualize
   allocation of their students across multiple events.
 - Token Based authentication (using JWT).
-- send ticket in mail using NodeMailer
+- for each registration sending ticket in mail using NodeMailer
 
 **You can also**:
 
@@ -35,6 +35,7 @@ Front-end using **React.js** (front-end Currently in development)
 - reactJS - libraries for front-end development
 - MongoDB - database
 
+<<<<<<< Updated upstream
 ## Steps to run the project locally: 
 * Clone the repo.
 * Switch to `development` branch for running in development mode.
@@ -50,3 +51,26 @@ Front-end using **React.js** (front-end Currently in development)
 * Then enter the `client` folder and run `npm start`.
 * server will start at `http://localhost:3000`
 * Go to `http://localhost:3001` to see the application running.
+=======
+## Steps to run the project locally:
+
+- Clone the repo.
+- Switch to `development` branch for running in development mode.
+- Make sure you have `npm` Node.js & MongoDB Atlas.
+- Create a `.env` file in the server directory.
+- It should include the database url, port, etc.
+  ###### .env file example
+  \*DB_URL=mongodb+srv://**_:_**@eventmanagement.ul235.mongodb.net/_\*\*?retryWrites=true&w=majority_<br/>
+  _PRIVATE_KEY=secret_<br/>
+  _PORT=3000_<br/>
+  _ACCESS_TOKEN_SECRET_<br/>
+  _CLIENT_ID_<br/>
+  _CLIENT_SECRET_<br/>
+  _REDIRECT_URI_<br/>
+  _REFRESH_TOKEN_<br/>
+  <br/>
+- Enter the `server` folder using `cd server` and run `npm install` then run `npm run dev`.
+- Then enter the `client` using `cd client` folder and run `npm install` then run `npm start`.
+- server will start at `http://localhost:3000`
+- Go to `http://localhost:3001` to see the application running.
+>>>>>>> Stashed changes

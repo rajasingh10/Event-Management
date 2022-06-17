@@ -79,11 +79,13 @@ export default function Event() {
             });
             const data = await response.json();
             if (response.status === 200) {
-                alert("Successfully registered for the event")
+                toast.success("Successfully registered for the event")
+                // alert("Successfully registered for the event")
                 setAlreadyRegistered(true);
             }
             else {
-                alert("Failed to register for the event")
+                toast.error("Failed to register for the event")
+                // alert("Failed to register for the event")
             }
         } catch (error) {
             console.log(error);
@@ -112,7 +114,7 @@ export default function Event() {
                             </div>
                             <div className="middleContentBottom">
                                 <h4>Rules</h4>
-                                {event.rules?.map((rule, index) => <p>{index + 1}. {rule}</p>)}
+                                {event.rules?.map((rule, index) => <p key={index}>{index + 1}. {rule}</p>)}
                             </div>
                         </div>
 

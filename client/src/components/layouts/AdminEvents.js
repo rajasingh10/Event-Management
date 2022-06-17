@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react'
 import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
 import '../styles/AdminEvents.css'
-import EventPagination from './EventPagination'
+
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import toast, { Toaster } from 'react-hot-toast';

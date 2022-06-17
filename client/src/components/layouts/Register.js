@@ -52,7 +52,10 @@ export default function Register() {
             }
             else if (response.status == 409) {
                 toast.error(data.error)
+            }
+            else {
 
+                toast.error(data.error)
             }
         } catch (error) {
             // alert(error)
@@ -141,7 +144,7 @@ export default function Register() {
                     </form>
                     <div class="footer">
 
-                        <p>Already have an Account? <Link to="/login">SignIn</Link></p>
+                        <p style={{ fontSize: "20px" }}>Already have an Account? <Link to="/login">SignIn</Link></p>
                     </div>
                 </div>
             </div>

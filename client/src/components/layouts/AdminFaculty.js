@@ -143,12 +143,12 @@ export default function AdminFaculty() {
 
             }
             else {
-                if (data.error.includes("duplicate key error")) {
-                    toast.error("Already,faculty has been registered for this branch")
-                }
-                else {
+                // if (data.error.includes("duplicate key error")) {
+                //     toast.error("Already,faculty has been registered for this branch")
+                // }
+                // else {
 
-                }
+                // }
                 toast.error(data.error)
                 // alert(data.error)
             }

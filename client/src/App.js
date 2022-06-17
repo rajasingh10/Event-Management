@@ -27,7 +27,7 @@ function App() {
 
   useEffect(() => {
     handleLogin()
-  }, [isLoggedIn, role])
+  }, [])
 
   const handleLogin = async () => {
     try {

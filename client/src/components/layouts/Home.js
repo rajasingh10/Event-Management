@@ -19,13 +19,15 @@ export default function Home() {
     const [role, setRole] = useState('');
 
     useEffect(() => {
+
         handleLogin()
         HandleEventList();
     }, [])
 
+
+
     const handleLogin = async () => {
         try {
-
             const response = await fetch("http://localhost:3000/api/auth/isLogin", {
                 method: "GET",
                 credentials: 'include',
@@ -33,7 +35,6 @@ export default function Home() {
                     "Content-Type": "application/json"
                 }
             });
-
             if (response.status === 201) {
                 const data = await response.json();
                 if (data.data.verified == false) {
@@ -49,17 +50,15 @@ export default function Home() {
                 else if (data.data.role === "Faculty") {
                     navigate("/facultyHome");
                 }
-
             }
             else {
+                console.log("Login Failed");
                 // alert("not login")
             }
         } catch (error) {
-            // alert(error);
+            // console.log(error);
         }
-
     }
-
 
 
 
@@ -91,16 +90,18 @@ export default function Home() {
             {pending && <h2>"Your Account is in Pending, contact your faculty to verify"</h2>}
             {loading ? <div style={{ marginTop: "6rem" }}><Spinner animation="border" /></div> : <> <div id="slider">
                 <figure>
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt />
-                    <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt />
-                    <img src="https://images.unsplash.com/photo-1588083066783-8828e623bad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt />
-                    <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt />
-                    <img src="https://images.unsplash.com/photo-1588083066783-8828e623bad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt />
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt="Image" />
+                    <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image" />
+                    <img src="https://images.unsplash.com/photo-1588083066783-8828e623bad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image" />
+                    <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image" />
+                    <img src="https://images.unsplash.com/photo-1588083066783-8828e623bad7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image" />
 
                 </figure>
             </div>
                 <TimeLine eventList={eventList} />
             </>}
+
+
 
         </div>
     )

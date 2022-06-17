@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: linear-gradient(135deg, #70c782, #d271b8);
+  background-image: linear-gradient(to left bottom, #6ac4e6, #56ceec, #3fd8ee, #25e2ec, #12ebe7);
 }
 .registerContainer,.loginContainer{
   max-width: 700px;
@@ -116,11 +116,11 @@ form .input-box span.details{
    letter-spacing: 1px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(135deg, #6437ac, #c2d370);
+   background-image: linear-gradient(to left bottom, #6ac4e6, #56ceec, #3fd8ee, #25e2ec, #12ebe7);
  }
  form .button input:hover{
  
-  background: linear-gradient(-135deg, #9c8fe9, #96e484);
+  background-image: linear-gradient(to left bottom, #7ca4b3, #559aab, #2c747f, #25e2ec, #12ebe7);
   }
  @media(max-width: 584px){
  .container{
