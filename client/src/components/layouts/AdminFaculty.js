@@ -230,7 +230,7 @@ export default function AdminFaculty() {
                                 <th scope="col">Email</th>
                                 <th scope="col">Password</th>
                                 <th scope="col">Branch</th>
-                                <th scope="col">Operations</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -352,7 +352,7 @@ export default function AdminFaculty() {
                             <select value={state.branch || "none"} id="branch" onChange={(e) => {
                                 setState({ ...state, branch: e.target.value });
                             }}>
-                                <option value="none" selected disabled hidden>Select an Option</option>
+                                <option value="none" disabled hidden>Select an Option</option>
                                 <option value="CSE">Computer Science Engineering</option>
                                 <option value="IS">Information Science </option>
                                 <option value="ECE">Electronics and Communications Engineering</option>

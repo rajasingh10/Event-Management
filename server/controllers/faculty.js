@@ -2,7 +2,8 @@ const Event = require('../models/Event');
 const Student = require('../models/Student');
 const responder = require('../utils/responder');
 const Registration = require('../models/Registration');
-const errorCodes = require('../utils/errors');
+
+
 
 const controller = {
     getAllEvents: async (req, res) => {
@@ -88,7 +89,21 @@ const controller = {
         } catch (error) {
             return responder.error(res, error, 400);
         }
-    }
+    },
+    updateStudent: async (req, res) => {
+        try {
+            const { firstName, lastName, branch } = req.body;
+            if (!firstName || !lastName || !branch) {
+                return responder.error(res, "Empty value is not allowed", 400);
+            }
+            Student.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true }, (err, updatedStudent) => {
+                if (err) return responder.error(res, err, 400);
+                return responder.success(res, { message: "Student updated Successfully", event: updatedStudent }, 201);
+            })
+        } catch (error) {
+            return responder.error(res, error, 400);
+        }
+    },
 }
 
 

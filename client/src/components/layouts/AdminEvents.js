@@ -331,7 +331,7 @@ export default function AdminEvents() {
                                 <th scope="col">Event name</th>
                                 <th scope="col">Overview</th>
                                 <th scope="col">Category</th>
-                                <th scope="col">Operations</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>

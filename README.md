@@ -35,23 +35,7 @@ Front-end using **React.js** (front-end Currently in development)
 - reactJS - libraries for front-end development
 - MongoDB - database
 
-<<<<<<< Updated upstream
-## Steps to run the project locally: 
-* Clone the repo.
-* Switch to `development` branch for running in development mode.
-* Make sure you have `npm` Node.js & MongoDB installed in your system.
-* Create a `.env` file in the server directory.
-* It should include the database url, port, secret and accessTokenSecret
-  ###### .env file example
-  *DB_URL=mongodb+srv://***:***@eventmanagement.ul235.mongodb.net/***?retryWrites=true&w=majority*<br/>
-  *PRIVATE_KEY=secret*<br/>
-  *PORT=4000*<br/>
-  <br/>
-* Enter the `server` folder and run `nodemon`.
-* Then enter the `client` folder and run `npm start`.
-* server will start at `http://localhost:3000`
-* Go to `http://localhost:3001` to see the application running.
-=======
+
 ## Steps to run the project locally:
 
 - Clone the repo.
@@ -73,4 +57,4 @@ Front-end using **React.js** (front-end Currently in development)
 - Then enter the `client` using `cd client` folder and run `npm install` then run `npm start`.
 - server will start at `http://localhost:3000`
 - Go to `http://localhost:3001` to see the application running.
->>>>>>> Stashed changes
+
