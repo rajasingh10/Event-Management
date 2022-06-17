@@ -6,8 +6,7 @@ Front-end using **React.js** (front-end Currently in development)
 ### Features:
 
 - Application have only one super admin
-- Admin can add multiple events with the attributes like (Event Name, Date, Details
-  Thumbnail / Banner Image etc.). Events are open for all branch (Students from any branch can participate)
+- Admin can add multiple events with the attributes like (Event Name, Date, Details / Image etc.). Events are open for all branch (Students from any branch can participate)
 - Admin can add only 1 faculty from each branch who will have moderator access.
   Means they can view / edit / approve students who belongs to their branch.
 - In order to participate in any of the events, students need to sign up first. During
