@@ -34,6 +34,7 @@ Front-end using **React.js** (front-end Currently in development)
 - Express - fast node.js network app framework
 - reactJS - libraries for front-end development
 - MongoDB - database
+- JWT - Authentication
 
 
 ## Steps to run the project locally:
