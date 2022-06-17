@@ -41,14 +41,7 @@ const errorCodes = {
         code: "SOMETHING_WENT_WRONG",
         message: "Something went wrong"
     },
-    alreadyPaid: {
-        code: "TRANSACTION_EXISTS",
-        message: "This ticket has already been paid for or refunded"
-    },
-    noRefundableTicket: {
-        code: "NO_REFUNDABLE_TICKETS",
-        message: "No refundable tickets exist with this registration code, they might have already been refunded"
-    }
+   
 }
 
 
