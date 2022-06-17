@@ -26,6 +26,7 @@ Front-end using **React.js** (front-end Currently in development)
 - Token Based authentication (using JWT).
 - used cookies to store token 
 - for each registration sending ticket in mail using NodeMailer
+- This app is Mobile Responsive
 
 **You can also**:
 
