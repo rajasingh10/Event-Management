@@ -3,6 +3,9 @@
 Fully developed, scalable APIs for Event management system, developed using **Node.js**, **Express.js**
 Front-end using **React.js** (front-end Currently in development)
 
+##App is LIVE
+- `https://eventmanagement2022.herokuapp.com/`
+
 ### Features:
 
 - Application have only one super admin
